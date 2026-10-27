@@ -16,7 +16,30 @@ body {
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-title {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 8px;
+  color: #7aa2f7;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* El overlay cubre solo el área de juego, no el título */
+.game-area {
   position: relative;
+}
+
+@media (max-height: 760px) {
+  .game-title {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
 }
 
 .game-container {
