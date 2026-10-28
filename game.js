@@ -458,7 +458,7 @@ function showGameOverRecords() {
   if (qualifiesForTop(score)) {
     recordForm.classList.remove('hidden');
     recordNameInput.value = '';
-    recordNameInput.focus();
+    setTimeout(() => { if (gameOver) recordNameInput.focus(); }, 500); // tras mostrar el overlay y soltar teclas
   } else {
     recordForm.classList.add('hidden');
   }
@@ -486,6 +486,7 @@ resetRecordsBtn.addEventListener('click', () => {
     resetArmed = true;
     resetRecordsBtn.textContent = '¿Seguro? Pulsa de nuevo';
     resetRecordsBtn.classList.add('confirm');
+    setTimeout(disarmReset, 4000);
     return;
   }
   try { localStorage.removeItem('records'); localStorage.removeItem('recordStats'); } catch (e) {}
