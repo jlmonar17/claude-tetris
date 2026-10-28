@@ -24,6 +24,8 @@ Three files: `index.html` (DOM + two canvases: `#board` 300×600 and `#next-canv
 - **Rotation**: `rotateCW` returns a new matrix; `tryRotate` tries horizontal kicks `[0, -1, 1, -2, 2]` only (no vertical kicks, no SRS).
 - **Input**: single `keydown` listener using `e.code`; `KeyP` works while paused, everything else is ignored when `paused || gameOver`.
 
+- **Skins**: `SKINS` ({retro, neon, pastel, pixel}) define `colors[8]` (índice 0 `null`, alineado con `PIECES`; `retro.colors === COLORS`), `boardBg`/`grid` (`null` = usa los del tema) y `drawCell(ctx, px, py, size, color, alpha)`. `drawBlock` delega en la skin actual; `paintBackground` pinta el fondo de ambos canvas. `setSkin(name)` guarda `localStorage['skin']` y redibuja; `K` cicla skins; `#skin-select` se hace `blur()` tras cambiar. Cada `drawCell` debe restablecer `shadowBlur`/`globalAlpha`.
+
 ## Gotchas
 
 - Changing `COLS`, `ROWS`, or `BLOCK` requires manually updating the `width`/`height` attributes of `<canvas id="board">` in `index.html` (`COLS×BLOCK` by `ROWS×BLOCK`). The next-piece canvas assumes a 4×4 grid of 30px blocks (`drawNext`).
