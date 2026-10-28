@@ -41,6 +41,7 @@ Es una versión jugable del Tetris clásico con todas las mecánicas que esperar
 - **Vista previa** de la siguiente pieza.
 - **Sistema de puntuación** clásico de Tetris (100 / 300 / 500 / 800 multiplicado por nivel).
 - **Niveles** que aumentan cada 10 líneas y aceleran la caída.
+- **Skins visuales** (Retro, Neón, Pastel, Pixel art) con selector y atajo `K`; la preferencia se guarda en `localStorage['skin']`.
 - **Menú de pausa** (`P` o `Esc`): Reanudar, Reiniciar, Ver controles y Nivel inicial (1–10, guardado en `localStorage`). Navegable con `↑`/`↓` + `Enter`; los controles del juego quedan bloqueados mientras está abierto.
 - **Game Over** con opción de reinicio.
 
@@ -87,6 +88,7 @@ Después abre `http://localhost:8000` en el navegador.
 | `Espacio` | Hard drop (caída instantánea)     |
 | `P` / `Esc` | Pausar (abre el menú) / reanudar |
 | `T`       | Alternar tema oscuro / claro      |
+| `K`       | Cambiar de skin (o usar el selector) |
 | `Enter`   | Empezar desde la pantalla de inicio |
 
 ### Tabla de records

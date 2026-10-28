@@ -32,6 +32,8 @@ Three files: `index.html` (DOM + two canvases: `#board` 300×600 and `#next-canv
 - Combo: `lockPiece()` increments `combo` when `clearLines()` (now returns lines cleared) is > 0, else resets it; `bestCombo` is per game.
 - The keydown handler returns early when the target is an `<input>` (name field).
 
+- **Skins**: `SKINS` ({retro, neon, pastel, pixel}) define `colors[8]` (índice 0 `null`, alineado con `PIECES`; `retro.colors === COLORS`), `boardBg`/`grid` (`null` = usa los del tema) y `drawCell(ctx, px, py, size, color, alpha)`. `drawBlock` delega en la skin actual; `paintBackground` pinta el fondo de ambos canvas. `setSkin(name)` guarda `localStorage['skin']` y redibuja; `K` cicla skins; `#skin-select` se hace `blur()` tras cambiar. Cada `drawCell` debe restablecer `shadowBlur`/`globalAlpha`.
+
 ## Gotchas
 
 - Changing `COLS`, `ROWS`, or `BLOCK` requires manually updating the `width`/`height` attributes of `<canvas id="board">` in `index.html` (`COLS×BLOCK` by `ROWS×BLOCK`). The next-piece canvas assumes a 4×4 grid of 30px blocks (`drawNext`).

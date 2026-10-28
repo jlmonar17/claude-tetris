@@ -354,3 +354,31 @@ kbd {
   color: var(--danger);
   font-weight: 700;
 }
+
+/* ---- Selector de skin ---- */
+#skin-wrap {
+  position: fixed;
+  top: 12px;
+  right: 140px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+#skin-select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#skin-select:hover {
+  border-color: var(--accent);
+}
