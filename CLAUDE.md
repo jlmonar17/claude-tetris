@@ -25,6 +25,13 @@ Three files: `index.html` (DOM + two canvases: `#board` 300×600 and `#next-canv
 - **Pause menu**: `#pause-menu` (separate from `#overlay`, which is only GAME OVER). `togglePause()` opens/closes it; `handleMenuKey(e)` runs first in the `keydown` listener and consumes keys while it is open (↑/↓/Enter/←/→, Escape/P close). After resuming, `resumeGuardUntil` ignores game keys for 400 ms. `startLevel` (1–10, `localStorage['startLevel']`) is the base level: `init()` uses it for `level`/`dropInterval`, and `clearLines()` computes `level = startLevel + floor(lines/10)`.
 - **Input**: single `keydown` listener using `e.code`; `KeyP` works while paused, everything else is ignored when `paused || gameOver` (while the pause menu is open `handleMenuKey` takes over first).
 
+## Records
+
+- `#start-screen` (overlay) is shown on load; the game only starts via `startGame()` (button or Enter) — `init()` is no longer called at load. `started` flag gates keys/pause.
+- `localStorage['records']` = top 5 `{name, score, lines, combo, date}`; `localStorage['recordStats']` = `{combo, lines}` best ever (kept separately so they survive falling out of the top 5). Rendering is in `renderRecords()` using `textContent` only.
+- Combo: `lockPiece()` increments `combo` when `clearLines()` (now returns lines cleared) is > 0, else resets it; `bestCombo` is per game.
+- The keydown handler returns early when the target is an `<input>` (name field).
+
 ## Gotchas
 
 - Changing `COLS`, `ROWS`, or `BLOCK` requires manually updating the `width`/`height` attributes of `<canvas id="board">` in `index.html` (`COLS×BLOCK` by `ROWS×BLOCK`). The next-piece canvas assumes a 4×4 grid of 30px blocks (`drawNext`).

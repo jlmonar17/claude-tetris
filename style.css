@@ -250,3 +250,107 @@ kbd {
 .pause-controls { display: flex; flex-direction: column; gap: 4px; font-size: 13px; text-align: left; padding: 4px 14px; }
 .pause-controls.hidden { display: none; }
 .pause-hint { margin-top: 14px; font-size: 11px; opacity: 0.7; }
+
+/* ---- Records ---- */
+#start-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--accent);
+}
+
+.start-screen .overlay-box { max-height: 100%; overflow-y: auto; padding: 8px; }
+
+.records-block {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13px;
+  min-width: 240px;
+}
+
+.records-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.records-table th {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--muted-text);
+  font-weight: 600;
+  padding: 2px 6px;
+  text-align: right;
+}
+
+.records-table td {
+  padding: 3px 6px;
+  text-align: right;
+  color: var(--text);
+}
+
+.records-table th:nth-child(2), .records-table td:nth-child(2) { text-align: left; }
+
+.records-table tr.new-record td {
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+}
+
+.records-empty {
+  color: var(--muted-text);
+  padding: 6px 0;
+}
+
+.records-stats {
+  margin-top: 6px;
+  color: var(--muted-text);
+  font-size: 12px;
+}
+
+.records-stats b { color: var(--accent); }
+
+.record-form { display: flex; flex-direction: column; gap: 6px; align-items: center; font-size: 13px; }
+.record-form.hidden { display: none; }
+.record-form-row { display: flex; gap: 6px; }
+
+#record-name {
+  width: 130px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+}
+
+#record-name:focus { outline: 2px solid var(--accent); }
+
+#record-save-btn, #start-btn {
+  background: var(--accent);
+  color: var(--on-accent);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#start-btn { padding: 10px 28px; font-size: 14px; letter-spacing: 1px; }
+#record-save-btn:hover, #start-btn:hover { background: var(--accent-hover); }
+
+.start-hint { font-size: 11px; color: var(--muted-text); }
+
+#reset-records-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted-text);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+#reset-records-btn.confirm {
+  border-color: var(--danger);
+  color: var(--danger);
+  font-weight: 700;
+}

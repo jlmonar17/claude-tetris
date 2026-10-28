@@ -87,6 +87,11 @@ Después abre `http://localhost:8000` en el navegador.
 | `Espacio` | Hard drop (caída instantánea)     |
 | `P` / `Esc` | Pausar (abre el menú) / reanudar |
 | `T`       | Alternar tema oscuro / claro      |
+| `Enter`   | Empezar desde la pantalla de inicio |
+
+### Tabla de records
+
+La pantalla de inicio muestra el top 5 de puntuaciones (guardado en `localStorage['records']`), el mejor combo y las líneas máximas. Al terminar una partida que entre en el top 5 puedes escribir tu nombre (máx. 12 caracteres). El botón "Borrar records" pide una segunda pulsación para confirmar. El combo cuenta bloqueos de pieza consecutivos que limpian al menos una línea.
 
 ---
 
