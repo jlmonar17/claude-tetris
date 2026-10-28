@@ -67,6 +67,30 @@
         <button id="restart-btn">Reiniciar</button>
       </div>
     </div>
+
+    <div id="pause-menu" class="overlay hidden" role="dialog" aria-label="Menú de pausa">
+      <div class="overlay-box pause-box">
+        <p class="pause-title">PAUSA</p>
+        <ul class="pause-list">
+          <li><button type="button" class="pause-item" id="pm-resume">Reanudar</button></li>
+          <li><button type="button" class="pause-item" id="pm-restart">Reiniciar</button></li>
+          <li><button type="button" class="pause-item" id="pm-controls" aria-expanded="false">Ver controles</button></li>
+          <li id="pm-controls-list" class="pause-controls hidden">
+            <span><kbd>←</kbd><kbd>→</kbd> mover</span>
+            <span><kbd>↑</kbd> / <kbd>X</kbd> rotar</span>
+            <span><kbd>↓</kbd> bajar</span>
+            <span><kbd>Space</kbd> caída</span>
+            <span><kbd>P</kbd> / <kbd>Esc</kbd> pausa</span>
+            <span><kbd>T</kbd> tema</span>
+          </li>
+          <li class="pause-item pause-level" id="pm-level-row">
+            <label for="pm-level">Nivel inicial</label>
+            <select id="pm-level"></select>
+          </li>
+        </ul>
+        <p class="pause-hint">↑/↓ navegar · Enter elegir · ←/→ nivel · Esc cerrar</p>
+      </div>
+    </div>
     </div>
   </div>
 
