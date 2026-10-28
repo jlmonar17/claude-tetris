@@ -24,6 +24,13 @@ Three files: `index.html` (DOM + two canvases: `#board` 300×600 and `#next-canv
 - **Rotation**: `rotateCW` returns a new matrix; `tryRotate` tries horizontal kicks `[0, -1, 1, -2, 2]` only (no vertical kicks, no SRS).
 - **Input**: single `keydown` listener using `e.code`; `KeyP` works while paused, everything else is ignored when `paused || gameOver`.
 
+## Records
+
+- `#start-screen` (overlay) is shown on load; the game only starts via `startGame()` (button or Enter) — `init()` is no longer called at load. `started` flag gates keys/pause.
+- `localStorage['records']` = top 5 `{name, score, lines, combo, date}`; `localStorage['recordStats']` = `{combo, lines}` best ever (kept separately so they survive falling out of the top 5). Rendering is in `renderRecords()` using `textContent` only.
+- Combo: `lockPiece()` increments `combo` when `clearLines()` (now returns lines cleared) is > 0, else resets it; `bestCombo` is per game.
+- The keydown handler returns early when the target is an `<input>` (name field).
+
 ## Gotchas
 
 - Changing `COLS`, `ROWS`, or `BLOCK` requires manually updating the `width`/`height` attributes of `<canvas id="board">` in `index.html` (`COLS×BLOCK` by `ROWS×BLOCK`). The next-piece canvas assumes a 4×4 grid of 30px blocks (`drawNext`).
